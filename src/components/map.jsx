@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
+import Marker from './marker.jsx';
+
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
@@ -15,11 +17,11 @@ class SimpleMap extends Component {
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
+          bootstrapURLKeys={{ key: "AIzaSyC4us9oYfTvASsaIiFuEFdZR5WFvQ3BddQ" }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
+          <Marker
             lat={59.955413}
             lng={30.337844}
             text="My Marker"
