@@ -9,17 +9,24 @@ class App extends Component {
     super(props);
 
     this.state = {
-      flats: flats
+      flats: flats,
+      selectedFlat: flats[0]
     }
+  }
+
+  selectFlat = (index) => {
+    this.setState({
+      selectedFlat: flats[index]
+    });
   }
 
 
   render(){
     return(
       <div>
-          <FlatList flats={this.state.flats} />
+          <FlatList flats={this.state.flats} selectedFlat={this.state.selectedFlat} selectFlat={this.selectFlat} />
         <div className="map-container">
-          <SimpleMap />
+          <SimpleMap center={{lat: this.state.selectedFlat.lat, lng: this.state.selectedFlat.lng}} zoom={13}/>
         </div>
       </div>
     )
